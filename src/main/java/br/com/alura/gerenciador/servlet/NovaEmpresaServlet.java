@@ -22,12 +22,9 @@ public class NovaEmpresaServlet extends HttpServlet {
 
         System.out.println("Cadastrando nova empresa!");
         PrintWriter out = resp.getWriter();
-        out.println("<html>");
-        out.println("<body>");
+        out.println("<html><body>");
         out.println("A empresa " + nome + " foi criada!");
-        out.println(req.getParameter("nome"));
-        out.println("</body>");
-        out.println("</html>");
+        out.println("</body></html>");
 
     }
 }
