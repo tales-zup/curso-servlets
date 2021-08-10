@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 public class NovaEmpresaServlet extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         System.out.println("Cadastrando nova empresa!");
         PrintWriter out = resp.getWriter();
