@@ -12,11 +12,19 @@ public class NovaEmpresaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        String nome = req.getParameter("nome");
+
+        Empresa empresa = new Empresa();
+        empresa.setNome(nome);
+
+        Banco banco = new Banco();
+        banco.adiciona(empresa);
+
         System.out.println("Cadastrando nova empresa!");
         PrintWriter out = resp.getWriter();
         out.println("<html>");
         out.println("<body>");
-        out.println("Parabéns, uma nova empresa foi criada!\n");
+        out.println("A empresa " + nome + " foi criada!");
         out.println(req.getParameter("nome"));
         out.println("</body>");
         out.println("</html>");
