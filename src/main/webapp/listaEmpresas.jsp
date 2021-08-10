@@ -1,5 +1,3 @@
-<%@ page import="br.com.alura.gerenciador.servlet.Empresa" %>
-<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: tales.araujo
@@ -7,7 +5,9 @@
   Time: 15:18
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=ISO-8859-1" language="java" %>
+<%@ page import="java.util.List, br.com.alura.gerenciador.servlet.Empresa" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Listagem de empresas</title>
@@ -16,14 +16,9 @@
 
     <h3>Lista de empresas</h3>
     <ul>
-        <%
-            List<Empresa> empresas = (List<Empresa>)request.getAttribute("empresas");
-            for(Empresa e : empresas) {
-        %>
-        <li><%= e.getNome() %></li>
-        <%
-            }
-        %>
+        <c:forEach items="${empresas}" var="empresa">
+            <li>${empresa.nome}</li>
+        </c:forEach>
     </ul>
 
 </body>

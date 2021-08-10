@@ -1,7 +1,3 @@
-<%
-    String nomeEmpresa = (String) request.getAttribute("empresa");
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-    <p>Empresa <%= nomeEmpresa %> cadastrada com sucesso!</p>
+    <p>Empresa ${ empresa } cadastrada com sucesso!</p>
 </body>
 </html>
