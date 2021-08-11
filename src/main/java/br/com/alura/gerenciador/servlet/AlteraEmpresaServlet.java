@@ -8,12 +8,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
+@WebServlet("/alteraEmpresa")
+public class AlteraEmpresaServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        Integer id = Integer.valueOf(req.getParameter("id"));
         String nome = req.getParameter("nome");
         String dataAberturaReq = req.getParameter("dataAbertura");
         Date dataAbertura;
@@ -24,13 +25,12 @@ public class NovaEmpresaServlet extends HttpServlet {
             throw new ServletException(e);
         }
 
-        Empresa empresa = new Empresa();
+        Banco banco = new Banco();
+        Empresa empresa = banco.getEmpresaPeloId(id);
         empresa.setNome(nome);
         empresa.setDataAbertura(dataAbertura);
 
-        Banco banco = new Banco();
-        banco.adiciona(empresa);
-
         resp.sendRedirect("listaEmpresas");
+
     }
 }
