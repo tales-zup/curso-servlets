@@ -14,6 +14,10 @@
 </head>
 <body>
 
+    <c:if test="${not empty nomeEmpresa}">
+        <p>Empresa ${ nomeEmpresa } cadastrada com sucesso!</p>
+    </c:if>
+
     <h3>Lista de empresas</h3>
     <ul>
         <c:forEach items="${empresas}" var="empresa">

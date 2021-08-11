@@ -11,7 +11,7 @@ import java.util.List;
 public class ListaEmpresasServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         List<Empresa> empresas = Banco.getEmpresas();
 
